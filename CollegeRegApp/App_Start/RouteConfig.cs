@@ -13,6 +13,13 @@ namespace CollegeRegApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //The Welcome Page, once I get it.
+            routes.MapRoute(
+                name: "Welcome",
+                url: "Welcome",
+                defaults: new { controller = "RegApp", action = "Welcome" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
