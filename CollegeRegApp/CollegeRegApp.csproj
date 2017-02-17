@@ -177,6 +177,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\RegApp\Welcome.cshtml" />
     <Content Include="Views\_RegAppLayout.cshtml" />
+    <Content Include="Views\RegApp\AddStudent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

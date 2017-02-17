@@ -12,7 +12,11 @@ namespace CollegeRegApp.Controllers
         public ViewResult Welcome()
         {
             ViewBag.name = "Kirkland University";
+            return View();
+        }
 
+        public ViewResult AddStudent()
+        {
             return View();
         }
     }
