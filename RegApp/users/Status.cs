@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using University.Users;
-using University.Courses;
 
-namespace University
+
+namespace University.Users
 {
-    class University
+    public enum Status 
     {
+        no = 1,
+        yes = 0
     }
 }

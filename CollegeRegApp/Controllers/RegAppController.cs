@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using University.Users;
 
 namespace CollegeRegApp.Controllers
 {
     public class RegAppController : Controller
     {
-        // GET: RegApp
-        public ViewResult Welcome()
+    // GET: RegApp
+    public ViewResult Welcome()
         {
             ViewBag.name = "Kirkland University";
             return View();
@@ -17,7 +18,12 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult AddStudent()
         {
-            ViewData["isFulltime"] = ;
+            ViewData["isFulltime"] = Enum.GetNames(typeof(Status)).ToList();
+            return View();
+        }
+
+        public ViewResult AddCourse()
+        {
             return View();
         }
     }

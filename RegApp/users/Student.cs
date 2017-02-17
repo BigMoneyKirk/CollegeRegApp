@@ -12,16 +12,15 @@ namespace University.Users
         #region fields
         Dictionary<string, Course> classes = new Dictionary<string, Course>();
         private string major;
-        private bool isFulltime;  //full-time or part-time
+        private Status isFulltime;  //full-time or part-time
 
         #endregion fields
 
         #region constructor
-        public Student(string firstname, string lastname, string password, string email, int id,
+        public Student(string firstname, string lastname, string password, string email, int id, Status isFulltime,
             string major = "undecided") : base(firstname, lastname, password, email, id)
         {
             this.major = major;
-            isFulltime = false;
         }
 
         public override string GetInfo()
@@ -56,11 +55,12 @@ namespace University.Users
             set { this.major = value; }
         }
 
-        public bool IsFulltime
+        public Status IsFulltime
         {
-            get { return this.isFulltime; }
-            set { this.isFulltime = value; }
+            get;
+            set;
         }
+
         #endregion properties
 
         //I want to create a class and add a method that tell me if I student is fulltime or parttime
