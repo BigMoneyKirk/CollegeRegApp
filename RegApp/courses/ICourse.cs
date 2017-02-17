@@ -21,7 +21,7 @@ namespace University.Courses
 
         // properties
         string Title { get; }
-        TimeSpan CreditHours { get; }
+        CreditHours CreditHours { get; }
         bool isFull { get; }
         int RosterCount { get; }
     }

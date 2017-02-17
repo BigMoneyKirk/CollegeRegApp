@@ -1,0 +1,31 @@
+﻿@model University.Courses.Course
+
+@{
+    ViewBag.Title = "Add a Course";
+}
+
+<div> 
+    <h3><u>Add a Course</u></h3>
+</div>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <div>Name of Course: @Html.TextBoxFor(x => x.Title, new { @placeholder = "i.e. Artificial Intelligence" })</div>
+        <div>
+            Credit Hours:
+            @foreach (var item in Enum.GetValues(typeof(CreditHours)))
+            {
+                @Html.RadioButtonFor(x => x.CreditHours, item)@item;
+            }
+        </div>
+        
+        <div>
+            <input type="submit" value="Submit Order" />
+        </div>
+
+    }
+</div>
+
+

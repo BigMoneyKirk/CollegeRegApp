@@ -16,57 +16,20 @@ namespace University.Courses
 
         public bool isClosed;
         private string title;
-        private string major;
         private DateTime timeOfDay;
-        private int creditHour;
-        private TimeSpan timeSpan;
+        private CreditHours creditHour;
         #endregion fields
 
         #region constructors
-        /*
         public Course()
         {
         }
-        */
 
-        ~Course()
-        {
-        }
-
-        public Course(string title, DateTime timeOfDay, int creditHour = 1, string major = "elective")
+        public Course(string title, DateTime timeOfDay, CreditHours creditHour, string major = "elective")
         {
             this.title = title;
             this.timeOfDay = timeOfDay;
-            this.major = major;
             this.creditHour = creditHour;
-
-            /*
-             * if the inserted course's credit hours isn't 1 or 2, then it prompt the user to 
-             * insert either a 1 or a 2.
-             */
-
-            while (creditHour != 1 && creditHour != 2)
-            {
-                Console.WriteLine($"{Title}'s credit hours must be 1 or 2.");
-                Console.WriteLine("Enter either 1 or 2: \n");
-                string correction = Console.ReadLine();
-                Console.WriteLine();
-                int i = Convert.ToInt32(correction);
-                creditHour = i;
-            } // while
-
-            this.timeSpan = new TimeSpan(creditHour, 0, 0);
-
-            switch (creditHour)
-            {
-                case 1:
-                    Global.numberOf1HourCourses++;
-                    break;
-
-                case 2:
-                    Global.numberOf2HourCourses++;
-                    break;
-            } // switch
 
         } // Course constructor
 
@@ -249,11 +212,16 @@ namespace University.Courses
             {
                 return this.title;
             }
+            set
+            {
+                this.title = value;
+            }
         }
 
-        public TimeSpan CreditHours
+        public CreditHours CreditHours
         {
-            get { return this.timeSpan; }
+            get;
+            set;
         }
 
         /// <summary>

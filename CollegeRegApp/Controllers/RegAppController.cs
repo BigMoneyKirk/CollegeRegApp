@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using University.Users;
+using University.Courses;
 
 namespace CollegeRegApp.Controllers
 {
@@ -25,7 +26,7 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult AddCourse()
         {
-            return View();
+           return View();
         }
     }
 }
