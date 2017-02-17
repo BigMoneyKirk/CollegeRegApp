@@ -2,13 +2,90 @@
 @{
     ViewBag.Title = "Welcome to Kirkland University!";
 }
-<div>
-    <h2>Welcome to Kirkland University!</h2>
-    <br />
+<div class="row">
+    <div class="col-md-6 col-md-offset-4">
+        <h2>Welcome to Kirkland University!</h2>
+    </div>
+</div>
 
-    Student
-    <br />
-    @Html.ActionLink("Add a Student", "AddStudent", null, new { @class = "btn btn-info"})
-    <br />
-    @Html.ActionLink("Remove a Student", "RemoveStudent", null, new { @class = "btn btn-info" })
+<br /><br /><br />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            Student
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            Administrator
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            Course
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Add a Student", "AddStudent", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Add Adminstrator", "AddAdministrator", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Add a Course", "AddCourse", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Remove a Student", "RemoveStudent", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Remove Adminstrator", "RemoveAdminstrator", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Remove a Course", "RemoveCourse", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("Add a Student to Course", "AddStudentToCourse", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("ChangePassword", "ChangePassword", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-offset-4">
+            @Html.ActionLink("List of Courses", "ListOfCourses", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
 </div>
