@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fulltime.cs" />
     <Compile Include="users\Administrator.cs" />
     <Compile Include="courses\Course.cs" />
     <Compile Include="Global.cs" />

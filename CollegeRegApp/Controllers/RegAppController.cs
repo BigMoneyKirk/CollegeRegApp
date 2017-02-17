@@ -18,7 +18,8 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult AddStudent()
         {
-            ViewData["isFulltime"] = Enum.GetNames(typeof(Status)).ToList();
+            ViewData["isFulltime"] = Enum.GetNames(typeof(Fulltime)).ToList();
+            ViewData["Status"] = Enum.GetNames(typeof(Status)).ToList();
             return View();
         }
 

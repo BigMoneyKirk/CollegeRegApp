@@ -12,15 +12,17 @@ namespace University.Users
         #region fields
         Dictionary<string, Course> classes = new Dictionary<string, Course>();
         private string major;
-        private Status isFulltime;  //full-time or part-time
+        private Fulltime isFulltime;  //full-time or part-time
+        private Status grade;
 
         #endregion fields
 
         #region constructor
-        public Student(string firstname, string lastname, string password, string email, int id, Status isFulltime,
+        public Student(string firstname, string lastname, string password, string email, int id, Fulltime isFulltime,
             string major = "undecided") : base(firstname, lastname, password, email, id)
         {
             this.major = major;
+            this.isFulltime = isFulltime;
         }
 
         public override string GetInfo()
@@ -55,10 +57,15 @@ namespace University.Users
             set { this.major = value; }
         }
 
-        public Status IsFulltime
+        public Fulltime IsFulltime
         {
             get;
             set;
+        }
+
+        public Status _status
+        {
+            get; set;
         }
 
         #endregion properties

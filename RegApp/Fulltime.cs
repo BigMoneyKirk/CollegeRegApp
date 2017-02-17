@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace University.Users
 {
-    public enum Status 
+    public enum Fulltime
     {
-        Freshman = 0,
-        Sophomore = 1,
-        Junior = 2,
-        Senior = 3
+        no = 1,
+        yes = 0
     }
 }
