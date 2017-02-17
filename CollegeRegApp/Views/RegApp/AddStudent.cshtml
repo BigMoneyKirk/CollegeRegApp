@@ -27,7 +27,12 @@
 
         <div>
             Status:
-            
+            <br />
+            @foreach (var item in ViewData["Status"] as List<string>)
+            { 
+                @Html.RadioButtonFor(x => x._status, item)@item
+                <br />
+            }
         </div>
 
         <br />

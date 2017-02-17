@@ -18,11 +18,12 @@ namespace University.Users
         #endregion fields
 
         #region constructor
-        public Student(string firstname, string lastname, string password, string email, int id, Fulltime isFulltime,
+        public Student(string firstname, string lastname, string password, string email, int id, Fulltime isFulltime, Status grade,
             string major = "undecided") : base(firstname, lastname, password, email, id)
         {
             this.major = major;
             this.isFulltime = isFulltime;
+            this.grade = grade;
         }
 
         public override string GetInfo()
@@ -69,8 +70,6 @@ namespace University.Users
         }
 
         #endregion properties
-
-        //I want to create a class and add a method that tell me if I student is fulltime or parttime
 
     }
 
