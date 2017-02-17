@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="courses\CreditHours.cs" />
+    <Compile Include="courses\StartingTime.cs" />
     <Compile Include="users\Fulltime.cs" />
     <Compile Include="users\Administrator.cs" />
     <Compile Include="courses\Course.cs" />

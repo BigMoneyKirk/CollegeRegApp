@@ -26,7 +26,8 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult AddCourse()
         {
-           return View();
+            ViewData["CreditHours"] = Enum.GetValues(typeof(CreditHours));
+            return View();
         }
     }
 }
