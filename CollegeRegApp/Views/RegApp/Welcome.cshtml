@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Welcome to Kirkland University!";
+}
+<div>
+    <h2>Welcome to Kirkland University!</h2>
+    <br />
+
+    Student
+    <br />
+    @Html.ActionLink("Add a Student", "AddStudent", null, new { @class = "btn btn-info"})
+    <br />
+    @Html.ActionLink("Remove a Student", "RemoveStudent", null, new { @class = "btn btn-info" })
+</div>

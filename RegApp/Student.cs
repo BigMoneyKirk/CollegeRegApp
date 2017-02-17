@@ -10,9 +10,8 @@ namespace University.Users
     public class Student : User
     {
         #region fields
-        //Dictionary<string, Course> classes = new Dictionary<string, Course>();
+        Dictionary<string, Course> classes = new Dictionary<string, Course>();
         private string major;
-        private int status;
         private bool isFulltime;  //full-time or part-time
 
         #endregion fields
