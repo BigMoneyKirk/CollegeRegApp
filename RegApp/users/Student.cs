@@ -49,5 +49,22 @@ namespace University.Users
         }
         #endregion constructor
 
+        #region properties
+        public string Major
+        {
+            get { return this.major; }
+            set { this.major = value; }
+        }
+
+        public bool IsFulltime
+        {
+            get { return this.isFulltime; }
+            set { this.isFulltime = value; }
+        }
+        #endregion properties
+
+        //I want to create a class and add a method that tell me if I student is fulltime or parttime
+
     }
+
 }

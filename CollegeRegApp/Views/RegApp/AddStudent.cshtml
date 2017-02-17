@@ -5,5 +5,26 @@
 }
 
 <div>
-    <p>Add a Student</p>
+    <h3><u>Add a Student</u></h3>
 </div>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <div>First Name: @Html.TextBoxFor(x => x.firstname, new { @placeholder = "i.e. John" })</div>
+        <div>Last Name: @Html.TextBoxFor(x => x.lastname, new { @placeholder = "i.e. Smith" })</div>
+        <div>email: @Html.TextBoxFor(x => x.Email, new { @placeholder = "i.e. johnsmith@email.com" })</div>
+        <div>password: @Html.TextBoxFor(x => x.Password, new { @placeholder = "enter password here" })</div>
+        <div>Major: @Html.TextBoxFor(x => x.Major, new { @placeholder = "What is your passion?" })</div>
+        <div>Are you fulltime? @Html.TextBoxFor(x => x.IsFulltime, new { @placeholder = "yes or no" })</div>
+
+        <br />
+
+        <div>
+            <input type="submit" value="Submit Order" />
+        </div>
+
+    }
+</div>
+

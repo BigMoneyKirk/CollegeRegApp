@@ -17,6 +17,7 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult AddStudent()
         {
+            ViewData["isFulltime"] = ;
             return View();
         }
     }
