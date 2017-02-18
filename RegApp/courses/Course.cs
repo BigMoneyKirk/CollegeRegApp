@@ -166,7 +166,7 @@ namespace University.Courses
              * select x;
             */
 
-            var student = studentRoster.Where(s => s.Id == id).FirstOrDefault(); // inside the Where() is the Lambda function, where it traverse through the users' ids and returns the id in the function's parameter to the variable x.
+            var student = studentRoster.Where(s => s.Id == id).FirstOrDefault(); // inside the Where() is the Lambda function, where it traverse through the users' ids and returns the id in the function's parameter to the variable s.
             return student;
         }
 
@@ -218,6 +218,9 @@ namespace University.Courses
             }
         }
 
+        /// <summary>
+        /// A class can be either 1 or 2 credit hours.
+        /// </summary>
         public CreditHours CreditHours
         {
             get;

@@ -180,6 +180,7 @@
     <Content Include="Views\RegApp\AddStudent.cshtml" />
     <Content Include="Views\RegApp\AddCourse.cshtml" />
     <Content Include="Views\RegApp\ListOfCourses.cshtml" />
+    <Content Include="Views\RegApp\StudentAdded.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

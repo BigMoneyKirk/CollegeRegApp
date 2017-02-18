@@ -52,12 +52,14 @@ namespace University.Users
         //firstname property
         public string Firstname
         {
+            get { return this.firstname; }
             set { this.firstname = value; }
         }
 
         //lasstname property
         public string Lastname
         {
+            get { return this.lastname; }
             set { this.lastname = value; }
         }
 

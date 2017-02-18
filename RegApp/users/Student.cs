@@ -18,6 +18,12 @@ namespace University.Users
         #endregion fields
 
         #region constructor
+        public Student(string firstname, string lastname)
+        {
+            this.firstname = firstname;
+            this.lastname = lastname;
+        }
+
         public Student(string firstname, string lastname, string password, string email, int id, Fulltime isFulltime, Status grade,
             string major = "undecided") : base(firstname, lastname, password, email, id)
         {
