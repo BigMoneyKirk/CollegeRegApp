@@ -29,5 +29,10 @@ namespace CollegeRegApp.Controllers
             ViewData["CreditHours"] = Enum.GetValues(typeof(CreditHours));
             return View();
         }
+
+        public ViewResult ListOfCourses()
+        {
+            return View();
+        }
     }
 }
