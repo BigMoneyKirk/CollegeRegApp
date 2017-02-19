@@ -48,10 +48,13 @@ namespace CollegeRegApp.Controllers
         }
 
         //[HttpPost]
-        public ViewResult StudentAdded()
+        public ViewResult AddStudent(Student s)
         {
-            
-                return View();
+            if (ModelState.IsValid)
+            {
+                return View("StudentAdded", s);
+            }
+            return View();
             
         }
 

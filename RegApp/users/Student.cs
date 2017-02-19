@@ -19,6 +19,10 @@ namespace University.Users
         #endregion fields
 
         #region constructor
+        public Student()
+        {
+
+        }
         public Student(string firstname, string lastname)
         {
             this.firstname = firstname;
