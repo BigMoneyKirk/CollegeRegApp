@@ -44,8 +44,6 @@ namespace University.Users
         }
         #endregion methods
 
-
-
         #region properties
         public string Major
         {

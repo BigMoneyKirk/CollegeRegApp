@@ -4,11 +4,16 @@ using University.Users;
 
 namespace University
 {
-    interface IUniversity
+    public interface IUniversity
     {
+        List<ICourse> ListOfCourses { get; set; }
         List<ICourse> GetCourses();
         void AddCourse(Course course);
+        List<Student> ListOfStudents { get; set; }
         List<Student> GetStudents();
         void AddStudent(Student student);
+        List<Major> ListOfMajors { get; set; }
+        List<Major> GetMajors();
+        void AddMajor(Major major);
     }
 }

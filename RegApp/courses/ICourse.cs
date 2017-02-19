@@ -7,7 +7,7 @@ using University.Users;
 
 namespace University.Courses
 {
-    interface ICourse
+    public interface ICourse
     {
         // methods
         bool AddStudent(Student student);
@@ -20,8 +20,8 @@ namespace University.Courses
         Task<List<Student>> GetStudentRoster();
 
         // properties
-        string Title { get; }
-        CreditHours CreditHours { get; }
+        string Title { get; set; }
+        CreditHours CreditHours { get; set; }
         bool isFull { get; }
         int RosterCount { get; }
     }

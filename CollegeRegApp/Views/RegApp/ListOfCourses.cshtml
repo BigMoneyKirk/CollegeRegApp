@@ -1,4 +1,4 @@
-﻿@model University.Courses.Course
+﻿@model University2
 
 @{
     ViewBag.Title = "List of Courses";
@@ -6,5 +6,9 @@
 
 <div>
     <h3><u>List of Courses:</u></h3>
+    @foreach (var item in ViewBag["Courses"] as List<ICourse>)
+    {
+        @Html.DisplayFor(x => x.ListOfCourses, item.Title)@item.Title
+    }
 
 </div>

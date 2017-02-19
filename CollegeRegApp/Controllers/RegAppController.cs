@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using University;
 using University.Users;
 using University.Courses;
 
@@ -12,6 +13,9 @@ namespace CollegeRegApp.Controllers
     public class RegAppController : Controller
     {
 
+        University2 KirklandUni = new University2(new List<ICourse>(new[] { new Course("Artificial Intelligence", new DateTime(), CreditHours.two), new Course("Physics", new DateTime(), CreditHours.two), new Course("Basketball", new DateTime(), CreditHours.one) }));
+
+        #region dunno
         // connections
         public string con = GetConnectionString();
         public string coursesQuery = ShowAllCoursesQuery();
@@ -26,6 +30,7 @@ namespace CollegeRegApp.Controllers
         {
             return "SELECT * FROM Course";
         }
+        #endregion dunno
 
         // GET: RegApp
         public ViewResult Welcome()
@@ -63,6 +68,7 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult ListOfCourses()
         {
+            ViewBag["Courses"] = KirklandUni.ListOfCourses;
             return View();
         }
     }

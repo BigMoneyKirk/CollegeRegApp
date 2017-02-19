@@ -8,10 +8,16 @@ using University.Users;
 
 namespace University
 {
-    class University : IUniversity
+    public class University2 : IUniversity
     {
         public List<ICourse> _courselist;
         public List<Student> _studentlist;
+        public List<Major> _majorlist;
+
+        public University2(List<ICourse> courses)
+        {
+            ListOfCourses = courses;
+        }
 
         public List<ICourse> ListOfCourses
         {
@@ -61,6 +67,32 @@ namespace University
         public void AddStudent(Student student)
         {
             ListOfStudents.Add(student);
+        }
+
+        public List<Major> ListOfMajors
+        {
+            get
+            {
+                if (_majorlist == null)
+                {
+                    _majorlist = new List<Major>();
+                }
+                return _majorlist;
+            }
+            set
+            {
+                _majorlist = value;
+            }
+        }
+
+        public List<Major> GetMajors()
+        {
+            return ListOfMajors;
+        }
+
+        public void AddMajor(Major major)
+        {
+            ListOfMajors.Add(major);
         }
     }
 }

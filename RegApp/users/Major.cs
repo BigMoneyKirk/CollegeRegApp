@@ -8,7 +8,6 @@ namespace University.Users
 {
     public class Major
     {
-        int id;
         string title;
 
         public Major()

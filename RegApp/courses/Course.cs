@@ -25,7 +25,7 @@ namespace University.Courses
         {
         }
 
-        public Course(string title, DateTime timeOfDay, CreditHours creditHour, string major = "elective")
+        public Course(string title, DateTime timeOfDay, CreditHours creditHour)
         {
             this.title = title;
             this.timeOfDay = timeOfDay;
@@ -35,6 +35,7 @@ namespace University.Courses
 
         #endregion constructors
 
+        #region methods
         /// <summary>
         /// declaring the course delegate that closes a course
         /// </summary>
@@ -200,7 +201,7 @@ namespace University.Courses
         {
             return Task.Run(() => { return studentRoster; });
         }
-
+        #endregion methods
 
         #region properties
         /// <summary>
