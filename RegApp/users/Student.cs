@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace University.Users
         private string major;
         private Fulltime isFulltime;  //full-time or part-time
         private Status grade;
-
+        List<ICourse> ListOfCourses;
         #endregion fields
 
         #region constructor
@@ -35,13 +36,8 @@ namespace University.Users
         #endregion constructor
 
         #region methods
-        /// <summary>
-        /// push student to the database
-        /// </summary>
-        public string NewStudent(SqlConnection sqlcon, Student s)
-        {
-            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.Major}, '{s._status.ToString()}', '{(int)s.IsFulltime}')";
-        }
+
+        
         #endregion methods
 
         #region properties
