@@ -31,13 +31,6 @@ namespace University.Users
             }
         }
 
-
-        // methods
-        public override string GetInfo()
-        {
-            return base.ToString();
-        }
-
         /// <summary>
         /// only the admin is able to set a new password
         /// </summary>

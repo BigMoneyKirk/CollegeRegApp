@@ -42,12 +42,14 @@
   <ItemGroup>
     <Compile Include="courses\CreditHours.cs" />
     <Compile Include="courses\StartingTime.cs" />
+    <Compile Include="IUniversity.cs" />
     <Compile Include="users\Fulltime.cs" />
     <Compile Include="users\Administrator.cs" />
     <Compile Include="courses\Course.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="courses\ICourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="users\Major.cs" />
     <Compile Include="users\Status.cs" />
     <Compile Include="users\Student.cs" />
     <Compile Include="University.cs" />

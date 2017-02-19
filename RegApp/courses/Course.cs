@@ -125,10 +125,10 @@ namespace University.Courses
         /// </summary>
         /// <param name="id">the student's id who is supposed to be removed</param>
         /// <returns></returns>
-        public bool RemoveStudent(int id)
+        public void RemoveStudent(int id)
         {
             Student s = GetStudentByID(id);
-            return studentRoster.Remove(s);
+            studentRoster.Remove(s);
         }
 
         /// <summary>

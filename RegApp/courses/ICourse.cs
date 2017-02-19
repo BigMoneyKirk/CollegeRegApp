@@ -12,7 +12,7 @@ namespace University.Courses
         // methods
         bool AddStudent(Student student);
         bool AddStudents(List<Student> roster);
-        bool RemoveStudent(int id);
+        void RemoveStudent(int id);
         bool RemoveStudent(Student student);
         bool RemoveStudent(string firstname, string lastname);
         Student GetStudentByID(int id);

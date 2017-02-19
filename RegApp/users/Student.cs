@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,6 @@ namespace University.Users
     public class Student : User
     {
         #region fields
-        Dictionary<string, Course> classes = new Dictionary<string, Course>();
         private string major;
         private Fulltime isFulltime;  //full-time or part-time
         private Status grade;
@@ -32,30 +32,19 @@ namespace University.Users
             this.grade = grade;
         }
 
-        public override string GetInfo()
-        {
-            StringBuilder sb = new StringBuilder(base.ToString());
-            sb.Append($"Name: {Fullname}");
-            sb.Append($"\n{major}");
-            sb.Append($"\nIs fulltime: {isFulltime}");
-
-            if (classes.Count == 0)
-            {
-                sb.Append($"\nNot registered for classes. Go register.");
-            }
-
-            else
-            {
-                foreach (KeyValuePair<string, Course> c in classes)
-                {
-                    sb.Append("\n");
-                    sb.Append(c.Value.Title);
-                }
-            }
-
-            return sb.ToString();
-        }
         #endregion constructor
+
+        #region methods
+        /// <summary>
+        /// push student to the database
+        /// </summary>
+        public string NewStudent(SqlConnection sqlcon, Student s)
+        {
+            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.Major}, '{s._status.ToString()}', '{(int)s.IsFulltime}')";
+        }
+        #endregion methods
+
+
 
         #region properties
         public string Major

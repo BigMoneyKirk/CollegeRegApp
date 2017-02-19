@@ -56,6 +56,11 @@ namespace CollegeRegApp.Controllers
             return View();
         }
 
+        public ViewResult ListOfMajors()
+        {
+            return View();
+        }
+
         public ViewResult ListOfCourses()
         {
             return View();

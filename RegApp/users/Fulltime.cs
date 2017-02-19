@@ -8,7 +8,7 @@ namespace University.Users
 {
     public enum Fulltime
     {
-        no = 1,
-        yes = 0
+        no = 0,
+        yes = 1
     }
 }

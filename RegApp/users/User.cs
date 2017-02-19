@@ -96,8 +96,6 @@ namespace University.Users
             return result;
         }
 
-        public abstract string GetInfo();
-
         #endregion methods
     }
 }
