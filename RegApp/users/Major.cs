@@ -19,7 +19,17 @@ namespace University.Users
             this.title = title;
         }
 
-        public string Title { get; set; }
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
+        }
         public int ID { get; set; }
     }
 }

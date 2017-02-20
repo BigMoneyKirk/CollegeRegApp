@@ -15,8 +15,6 @@ namespace CollegeRegApp.Controllers
 
         University2 KirklandUni = new University2(new List<ICourse>(new[] { new Course("Artificial Intelligence", new DateTime(), CreditHours.two), new Course("Physics", new DateTime(), CreditHours.two), new Course("Basketball", new DateTime(), CreditHours.one) }));
 
-        string con1 = Global.GetConnectionString();
-
         #region dunno
         // connections
         public string con = GetConnectionString();
@@ -69,7 +67,7 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult ListOfMajors()
         {
-            Global.ShowReadResult(con1, Global.GetMajorsFromDBQuery());
+            Global.ShowReadResult(con, Global.GetMajorsFromDBQuery());
             ViewData["Majors"] = University2._majorlist;
             return View();
         }
