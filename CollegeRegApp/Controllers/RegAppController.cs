@@ -12,23 +12,18 @@ namespace CollegeRegApp.Controllers
 {
     public class RegAppController : Controller
     {
-
-        University2 KirklandUni = new University2(new List<ICourse>(new[] { new Course("Artificial Intelligence", new DateTime(), CreditHours.two), new Course("Physics", new DateTime(), CreditHours.two), new Course("Basketball", new DateTime(), CreditHours.one) }));
-
         #region dunno
         // connections
         public string con = GetConnectionString();
-        public string coursesQuery = ShowAllCoursesQuery();
-
-
+        
         public static string GetConnectionString()
         {
             return "Data Source=myinstancedemo.chppvnuzl4vk.us-east-1.rds.amazonaws.com,1433;Initial Catalog=RegistrationAppDB;Persist Security Info=True;User ID=stephenkirkland;Password=12345678;Encrypt=False;";
         }
 
-        public static string ShowAllCoursesQuery()
+        public static string GetCoursesFromDBQuery()
         {
-            return "SELECT * FROM Course";
+            return "CourseList";
         }
         #endregion dunno
 
@@ -62,19 +57,21 @@ namespace CollegeRegApp.Controllers
         public ViewResult AddCourse()
         {
             ViewData["CreditHours"] = Enum.GetValues(typeof(CreditHours));
+            ViewData["TimeList"] = University2._timelist;
             return View();
         }
 
         public ViewResult ListOfMajors()
         {
-            Global.ShowReadResult(con, Global.GetMajorsFromDBQuery());
+            Global.ShowReadResultForMajors(con, Global.GetMajorsFromDBQuery());
             ViewData["Majors"] = University2._majorlist;
             return View();
         }
 
         public ViewResult ListOfCourses()
         {
-            ViewData["Courses"] = KirklandUni.ListOfCourses;
+            Global.ShowReadResultForCourses(con, GetCoursesFromDBQuery());
+            ViewData["Courses"] = University2._courselist;
             return View();
         }
     }

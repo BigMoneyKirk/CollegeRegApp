@@ -15,12 +15,18 @@
         <div>Name of Course: @Html.TextBoxFor(x => x.Title, new { @placeholder = "i.e. Artificial Intelligence" })</div>
         <div>
             Credit Hours:
-            @Html.EnumDropDownListFor(x => x.CreditHours)
+            @Html.EnumDropDownListFor(x => x.CreditHours, "Select a credit")
         </div>
 
         <div>
             Starting Time:
-            
+            @*
+    @foreach (var item in ViewData["TimeList"] as List<string>)
+    {
+        @Html.DropDownList(item)
+        <br />
+    }
+            *@
         </div>
         
         <div>

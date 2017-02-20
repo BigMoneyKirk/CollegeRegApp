@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace RegApp.courses
 {
-    public enum StartingTime
+    public struct StartingTime
     {
-       
+        public StartingTime(string s)
+        {
+
+        }
     }
 }

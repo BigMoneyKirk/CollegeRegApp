@@ -34,12 +34,13 @@ namespace University
             }
         }
 
+        #region ReadResults
         /// <summary>
         /// I want to read the information from my database and present it to my view.
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="query"></param>
-        public static void ShowReadResult(string connection, string query)
+        public static void ShowReadResultForMajors(string connection, string query)
         {
             using (SqlConnection sqlcon = new SqlConnection(connection))
             {
@@ -66,6 +67,37 @@ namespace University
                 }
             }
         }
+
+        ///
+        public static void ShowReadResultForCourses(string connection, string query)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connection))
+            {
+                SqlCommand command = new SqlCommand(query, sqlcon);
+                try
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    // the rest was set up; this is what we want.
+
+                    while (reader.Read())
+                    {
+                        // write stuff to the console
+                        // look up MSDN documentation for SqlDataReader
+                        //Console.WriteLine($"{reader[1]}");
+                        //Course c = new Course(reader[0].ToString());
+                        Course c = new Course();
+                        University2.AddCourse(c);
+                    }
+                    reader.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+        #endregion ReadResults
 
         /// <summary>
         /// String that declares the connection to my database (RegistrationAppDB)

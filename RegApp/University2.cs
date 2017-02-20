@@ -8,18 +8,19 @@ using University.Users;
 
 namespace University
 {
-    public class University2 : IUniversity
+    public class University2
     {
-        public List<ICourse> _courselist = new List<ICourse>();
-        public List<Student> _studentlist = new List<Student>();
+        public static List<ICourse> _courselist = new List<ICourse>();
+        public static List<Student> _studentlist = new List<Student>();
         public static List<Major> _majorlist = new List<Major>();
+        public static List<string> _timelist = new List<string>(new[] { "8:00", "8:30", "9:10", "9:30", "10:20", "12:15", "12:45", "1:45", "2:00", "3:00", "3:30", "3:35", "6:00"});
 
         public University2(List<ICourse> courses)
         {
             ListOfCourses = courses;
         }
 
-        public List<ICourse> ListOfCourses
+        public static List<ICourse> ListOfCourses
         {
             get
             {
@@ -37,7 +38,7 @@ namespace University
             return ListOfCourses;
         }
 
-        public void AddCourse(Course course)
+        public static void AddCourse(Course course)
         {
             ListOfCourses.Add(course);
         }
