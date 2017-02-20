@@ -5,6 +5,12 @@
 }
 <div> 
     <h3><u>List of Majors</u></h3>
-    @ViewData["Majors"]
+    @foreach (var item in ViewData["Majors"] as List<Major>)
+    {
+        @item.Title
+        <br />
+    }
+
+    
 </div>
 

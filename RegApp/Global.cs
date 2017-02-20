@@ -19,7 +19,9 @@ namespace University
         public static int numberOf1HourCourses = 0;
         public static int numberOf2HourCourses = 0;
 
-        ///database connection string and different queries (methods)
+        /*
+         *------------------------------------------DATABASE CONNECTIONS----------------------------------------------------- 
+        */
         public static DataSet GetDisconnectedResult(string connection, string query)
         {
             using (SqlConnection sqlcon = new SqlConnection(connection))
@@ -32,10 +34,51 @@ namespace University
             }
         }
 
+        /// <summary>
+        /// I want to read the information from my database and present it to my view.
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="query"></param>
+        public static void ShowReadResult(string connection, string query)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connection))
+            {
+                SqlCommand command = new SqlCommand(query, sqlcon);
+                try
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    // the rest was set up; this is what we want.
+
+                    while (reader.Read())
+                    {
+                        // write stuff to the console
+                        // look up MSDN documentation for SqlDataReader
+                        //Console.WriteLine($"{reader[1]}");
+                        Major m = new Major(reader[0].ToString());
+                        University2.AddMajor(m);
+                    }
+                    reader.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// String that declares the connection to my database (RegistrationAppDB)
+        /// </summary>
+        /// <returns>a connection string</returns>
         public static string GetConnectionString()
         {
             return "Data Source=myinstancedemo.chppvnuzl4vk.us-east-1.rds.amazonaws.com,1433;Initial Catalog=RegistrationAppDB;Persist Security Info=True;User ID=stephenkirkland;Password=12345678;Encrypt=False;";
         }
+
+        /*
+         *---------------------------------STUDENT STUFF---------------------------------------------- 
+        */
 
         /// <summary>
         /// the query that inserts a student into the RegistrationAppDB
@@ -54,7 +97,18 @@ namespace University
         {
             GetDisconnectedResult(GetConnectionString(), NewStudentQuery(s));
         }
-    }
+
+
+        /*
+         *-----------------------------------------MAJOR STUFF---------------------------------------------------------- 
+        */
+
+        public static string GetMajorsFromDBQuery()
+        {
+            return "MajorTitles";
+        }
+
+    } // GLOBAL CLASS
 
     public static class Errors
     {

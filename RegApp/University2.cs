@@ -90,7 +90,7 @@ namespace University
             return ListOfMajors;
         }
 
-        public void AddMajor(Major major)
+        public static void AddMajor(Major major)
         {
             ListOfMajors.Add(major);
         }

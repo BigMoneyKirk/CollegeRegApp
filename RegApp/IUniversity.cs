@@ -14,6 +14,5 @@ namespace University
         void AddStudent(Student student);
         
         List<Major> GetMajors();
-        void AddMajor(Major major);
     }
 }
