@@ -10,9 +10,9 @@ namespace University
 {
     public class University2 : IUniversity
     {
-        public List<ICourse> _courselist;
-        public List<Student> _studentlist;
-        public static List<Major> _majorlist;
+        public List<ICourse> _courselist = new List<ICourse>();
+        public List<Student> _studentlist = new List<Student>();
+        public static List<Major> _majorlist = new List<Major>();
 
         public University2(List<ICourse> courses)
         {
