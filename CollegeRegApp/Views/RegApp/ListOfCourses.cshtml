@@ -6,9 +6,10 @@
 
 <div>
     <h3><u>List of Courses:</u></h3>
-    @foreach (var item in ViewBag["Courses"] as List<ICourse>)
+    @foreach (var item in ViewData["Courses"] as List<ICourse>)
     {
         @Html.DisplayFor(x => x.ListOfCourses, item.Title)@item.Title
+        <br />
     }
 
 </div>

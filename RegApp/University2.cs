@@ -12,7 +12,7 @@ namespace University
     {
         public List<ICourse> _courselist;
         public List<Student> _studentlist;
-        public List<Major> _majorlist;
+        public static List<Major> _majorlist;
 
         public University2(List<ICourse> courses)
         {
@@ -69,7 +69,7 @@ namespace University
             ListOfStudents.Add(student);
         }
 
-        public List<Major> ListOfMajors
+        public static List<Major> ListOfMajors
         {
             get
             {

@@ -12,7 +12,7 @@ namespace University
         List<Student> ListOfStudents { get; set; }
         List<Student> GetStudents();
         void AddStudent(Student student);
-        List<Major> ListOfMajors { get; set; }
+        
         List<Major> GetMajors();
         void AddMajor(Major major);
     }

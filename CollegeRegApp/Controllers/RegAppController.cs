@@ -52,6 +52,7 @@ namespace CollegeRegApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                Global.GetDisconnectedResult(Global.GetConnectionString(), Global.NewStudentQuery(s));
                 return View("StudentAdded", s);
             }
             return View();
@@ -66,12 +67,13 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult ListOfMajors()
         {
+            ViewData["Majors"] = University2._majorlist;
             return View();
         }
 
         public ViewResult ListOfCourses()
         {
-            ViewBag["Courses"] = KirklandUni.ListOfCourses;
+            ViewData["Courses"] = KirklandUni.ListOfCourses;
             return View();
         }
     }
