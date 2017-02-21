@@ -12,7 +12,7 @@ namespace CollegeRegApp.Controllers
 {
     public class RegAppController : Controller
     {
-        #region dunno
+        #region DB stuff
         // connections
         public string con = GetConnectionString();
         
@@ -25,11 +25,17 @@ namespace CollegeRegApp.Controllers
         {
             return "SELECT * FROM Course ORDER BY CourseTime";
         }
-        #endregion dunno
+        #endregion DB stuff
 
         // GET: RegApp
         public ViewResult Login()
         {
+            return View();
+        }
+
+        public ViewResult Home()
+        {
+            //ViewData["StudentName"] = Student.Firstname;
             return View();
         }
 

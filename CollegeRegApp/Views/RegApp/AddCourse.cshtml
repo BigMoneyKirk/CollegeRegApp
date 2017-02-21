@@ -12,7 +12,7 @@
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary()
-        <div>Name of Course: @Html.TextBoxFor(x => x.Title, new { @placeholder = "i.e. Artificial Intelligence" })</div>
+        <div>Name of Course: @Html.TextBoxFor(x => x.CourseName, new { @placeholder = "i.e. Artificial Intelligence" })</div>
         <div>
             Credit Hours:
             @Html.EnumDropDownListFor(x => x.CreditHours, "Select a credit")
