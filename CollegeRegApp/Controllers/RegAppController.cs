@@ -61,6 +61,12 @@ namespace CollegeRegApp.Controllers
             return View();
         }
 
+        public ViewResult AddStudentToCourse()
+        {
+            return View();
+        }
+
+
         public ViewResult ListOfMajors()
         {
             Global.ShowReadResultForMajors(con, Global.GetMajorsFromDBQuery());

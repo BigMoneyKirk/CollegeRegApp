@@ -18,6 +18,8 @@ namespace University
         public static int maxNumberOfTwoHour = 5;
         public static int numberOf1HourCourses = 0;
         public static int numberOf2HourCourses = 0;
+        public static int majorCount = 0;
+        private static bool closed = false;
 
         /*
          *------------------------------------------DATABASE CONNECTIONS----------------------------------------------------- 
@@ -51,14 +53,23 @@ namespace University
                     SqlDataReader reader = command.ExecuteReader();
                     // the rest was set up; this is what we want.
 
-                    while (reader.Read())
+                    while (reader.Read() && !closed)
                     {
                         // write stuff to the console
                         // look up MSDN documentation for SqlDataReader
-                        //Console.WriteLine($"{reader[1]}");
+                        
+                        // try to get where 
                         Major m = new Major(reader[0].ToString());
-                        University2.AddMajor(m);
+                        //foreach (var item in University2._majorlist)
+                        //{
+                        //    if (m.Title == item.Title)
+                        //        break;
+                        //    else
+                                University2.AddMajor(m);
+                        majorCount++;
+                        //}
                     }
+                    closed = true;
                     reader.Close();
                 }
                 catch (Exception e)
