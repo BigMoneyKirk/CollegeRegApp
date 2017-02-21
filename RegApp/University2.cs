@@ -86,11 +86,6 @@ namespace University
             }
         }
 
-        public List<Major> GetMajors()
-        {
-            return ListOfMajors;
-        }
-
         public static void AddMajor(Major major)
         {
             ListOfMajors.Add(major);

@@ -1,4 +1,5 @@
-﻿
+﻿@model Student
+
 @{
     ViewBag.Title = "Login";
 }
@@ -19,6 +20,18 @@
                 <h4>Login:</h4>
             </div>
         </div>
+    </div>
+
+    <div>
+        email: @Html.TextBoxFor(x => x.Email, new { @placeholder = "i.e. johnsmith@email.com" })
+    </div>
+    <div>
+        password: @Html.PasswordFor(x => x.Password, new { @placeholder = "Enter password here" })
+    </div>
+
+    <div>
+        <input class="btn btn-success" type="submit" value="Login" />
+        @Html.ActionLink("New User", "AddStudent", null, new { @class = "btn btn-primary" })
     </div>
 
 

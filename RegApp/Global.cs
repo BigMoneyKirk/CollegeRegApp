@@ -19,7 +19,7 @@ namespace University
         public static int numberOf1HourCourses = 0;
         public static int numberOf2HourCourses = 0;
         public static int majorCount = 0;
-        private static bool closed = false;
+        private static bool readClosed = false;
 
         #region DATABASE
         /*
@@ -54,23 +54,13 @@ namespace University
                     SqlDataReader reader = command.ExecuteReader();
                     // the rest was set up; this is what we want.
 
-                    while (reader.Read() && !closed)
+                    while (reader.Read() && !readClosed)
                     {
-                        // write stuff to the console
-                        // look up MSDN documentation for SqlDataReader
-                        
-                        // try to get where 
                         Major m = new Major(reader[0].ToString());
-                        //foreach (var item in University2._majorlist)
-                        //{
-                        //    if (m.Title == item.Title)
-                        //        break;
-                        //    else
-                                University2.AddMajor(m);
+                        University2.AddMajor(m);
                         majorCount++;
-                        //}
                     }
-                    closed = true;
+                    readClosed = true;
                     reader.Close();
                 }
                 catch (Exception e)
@@ -79,9 +69,12 @@ namespace University
                 }
             }
         }
-        #endregion DATABASE
 
-        ///
+        /// <summary>
+        /// Want to display the names of the course and their availablity. May incorporate them as a sorted table by time.
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="query"></param>
         public static void ShowReadResultForCourses(string connection, string query)
         {
             using (SqlConnection sqlcon = new SqlConnection(connection))
@@ -91,12 +84,9 @@ namespace University
                 {
                     sqlcon.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    // the rest was set up; this is what we want.
 
                     while (reader.Read())
                     {
-                        // write stuff to the console
-                        // look up MSDN documentation for SqlDataReader
                         //Console.WriteLine($"{reader[1]}");
                         //Course c = new Course(reader[0].ToString());
                         Course c = new Course();
@@ -120,6 +110,8 @@ namespace University
         {
             return "Data Source=myinstancedemo.chppvnuzl4vk.us-east-1.rds.amazonaws.com,1433;Initial Catalog=RegistrationAppDB;Persist Security Info=True;User ID=stephenkirkland;Password=12345678;Encrypt=False;";
         }
+        #endregion DATABASE
+
 
         /*
          *---------------------------------STUDENT STUFF---------------------------------------------- 

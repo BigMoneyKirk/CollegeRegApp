@@ -12,28 +12,28 @@ namespace University.Courses
     public class Course : ICourse
     {
         #region fields
-        private List<Student> studentRoster = new List<Student>();
-
-        public bool isClosed;
-        private string title;
-        private DateTime timeOfDay;
+        private int courseID;
+        private string _courseName;
         private CreditHours creditHour;
+        private string _courseTime;
+        public bool CourseAvailable = true;
+        private List<Student> studentRoster = new List<Student>();
         #endregion fields
+
 
         #region constructors
         public Course()
         {
         }
 
-        public Course(string title, DateTime timeOfDay, CreditHours creditHour)
+        public Course(string title, CreditHours creditHour)
         {
-            this.title = title;
-            this.timeOfDay = timeOfDay;
+            _courseName = title;
             this.creditHour = creditHour;
 
         } // Course constructor
-
         #endregion constructors
+
 
         #region methods
         /// <summary>
@@ -173,8 +173,8 @@ namespace University.Courses
 
         private bool CloseCourse(Course courseToClose)
         {
-            courseToClose.isClosed = true;
-            Console.WriteLine($"Registration closed for {courseToClose.Title}");
+            courseToClose.CourseAvailable = false;
+            Console.WriteLine($"Registration closed for {courseToClose.CourseName}");
             return true;
         }
 
@@ -203,19 +203,26 @@ namespace University.Courses
         }
         #endregion methods
 
+
         #region properties
         /// <summary>
         /// a property that returns the title of the course
         /// </summary>
-        public string Title
+        public int CourseID
+        {
+            get { return courseID; }
+            set { courseID = value; }
+        }
+
+        public string CourseName
         {
             get
             {
-                return this.title;
+                return _courseName;
             }
             set
             {
-                this.title = value;
+                _courseName = value;
             }
         }
 
@@ -224,8 +231,16 @@ namespace University.Courses
         /// </summary>
         public CreditHours CreditHours
         {
-            get;
-            set;
+            get { return creditHour; }
+            set { creditHour = value; }
+        }
+
+        public bool isAvailable
+        {
+            get
+            {
+                return studentRoster.Count < Global.maxStudents;
+            }
         }
 
         /// <summary>

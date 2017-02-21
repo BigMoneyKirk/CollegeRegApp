@@ -8,7 +8,7 @@
     <h3><u>List of Courses:</u></h3>
     @foreach (var item in ViewData["Courses"] as List<ICourse>)
     {
-        @Html.DisplayFor(x => x.ListOfCourses, item.Title)@item.Title
+        @item.CourseName
         <br />
     }
 
