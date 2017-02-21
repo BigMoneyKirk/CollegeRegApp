@@ -21,6 +21,7 @@ namespace University
         public static int majorCount = 0;
         private static bool closed = false;
 
+        #region DATABASE
         /*
          *------------------------------------------DATABASE CONNECTIONS----------------------------------------------------- 
         */
@@ -78,6 +79,7 @@ namespace University
                 }
             }
         }
+        #endregion DATABASE
 
         ///
         public static void ShowReadResultForCourses(string connection, string query)
@@ -141,6 +143,14 @@ namespace University
             GetDisconnectedResult(GetConnectionString(), NewStudentQuery(s));
         }
 
+        /// <summary>
+        /// I want to grab the students for the RegistrationAppDB in order to allow them to register to a course, etc.
+        /// </summary>
+        public static string GrabStudentsfromDBQuery()
+        {
+            return "SELECT FirstName, LastName FROM Student";
+        }
+
 
         /*
          *-----------------------------------------MAJOR STUFF---------------------------------------------------------- 
@@ -159,37 +169,4 @@ namespace University
         public static string notCorrectHours = "The class has to be either 1 or 2 credit hours.";
         public static string tooMany1HourCourses = "There can only be at most 10 1-hour courses.";
     }
-
-    /*
-     * Understanding partial classes
-     
-    public partial class Temp
-    {
-        public void Method111()
-        {
-
-        }
-    }
-
-    public partial class Temp
-    {
-        public void Method222()
-        {
-
-        }
-    }
-
-    public class Temp2
-    {
-        public void Method111()
-        {
-
-        }
-
-        public void Method222()
-        {
-
-        }
-    }
-    */
 }

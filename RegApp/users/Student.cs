@@ -21,12 +21,6 @@ namespace University.Users
         #region constructor
         public Student()
         {
-
-        }
-        public Student(string firstname, string lastname)
-        {
-            this.firstname = firstname;
-            this.lastname = lastname;
         }
 
         public Student(string firstname, string lastname, string password, string email, int id, Fulltime isFulltime, Status grade,

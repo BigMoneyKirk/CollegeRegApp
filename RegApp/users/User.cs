@@ -23,8 +23,13 @@ namespace University.Users
         #region constructors
         //constructors
         public User()
-        {
+        { 
+        }
 
+        public User(string firstname, string lastname)
+        {
+            this.firstname = firstname;
+            this.lastname = lastname;
         }
 
         public User(string firstname, string lastname, string password, string email, int id)
