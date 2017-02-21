@@ -19,7 +19,8 @@ namespace University
         public static int numberOf1HourCourses = 0;
         public static int numberOf2HourCourses = 0;
         public static int majorCount = 0;
-        private static bool readClosed = false;
+        private static bool majorReadClosed = false;
+        private static bool courseReadClosed = false;
 
         #region DATABASE
         /*
@@ -54,13 +55,13 @@ namespace University
                     SqlDataReader reader = command.ExecuteReader();
                     // the rest was set up; this is what we want.
 
-                    while (reader.Read() && !readClosed)
+                    while (reader.Read() && !majorReadClosed)
                     {
                         Major m = new Major(reader[0].ToString());
                         University2.AddMajor(m);
                         majorCount++;
                     }
-                    readClosed = true;
+                    majorReadClosed = true;
                     reader.Close();
                 }
                 catch (Exception e)
@@ -85,13 +86,17 @@ namespace University
                     sqlcon.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
-                    while (reader.Read())
+                    while (reader.Read() && !courseReadClosed)
                     {
-                        //Console.WriteLine($"{reader[1]}");
-                        //Course c = new Course(reader[0].ToString());
-                        Course c = new Course();
+                        int a = (int)reader[0];
+                        string b = reader[1].ToString();
+                        int d = (int)reader[2];
+                        string e = reader[3].ToString();
+                        bool f = (bool)reader[4];
+                        Course c = new Course(a, b, d, e, f);
                         University2.AddCourse(c);
                     }
+                    courseReadClosed = true;
                     reader.Close();
                 }
                 catch (Exception e)

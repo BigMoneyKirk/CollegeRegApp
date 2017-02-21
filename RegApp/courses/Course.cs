@@ -14,7 +14,7 @@ namespace University.Courses
         #region fields
         private int courseID;
         private string _courseName;
-        private CreditHours creditHour;
+        private int creditHour;
         private string _courseTime;
         public bool CourseAvailable = true;
         private List<Student> studentRoster = new List<Student>();
@@ -26,11 +26,21 @@ namespace University.Courses
         {
         }
 
-        public Course(string title, CreditHours creditHour)
+        public Course(int ID, string title, int creditHour, string courseTime, bool CourseAvailable)
         {
+            courseID = ID;
             _courseName = title;
             this.creditHour = creditHour;
-
+            _courseTime = courseTime;
+            this.CourseAvailable = CourseAvailable;
+            //if (CourseAvailable == 1)
+            //{
+            //    this.CourseAvailable = true;
+            //}
+            //else
+            //{ 
+            //    this.CourseAvailable = false;
+            //}
         } // Course constructor
         #endregion constructors
 
@@ -216,23 +226,22 @@ namespace University.Courses
 
         public string CourseName
         {
-            get
-            {
-                return _courseName;
-            }
-            set
-            {
-                _courseName = value;
-            }
+            get{ return _courseName; }
+            set{ _courseName = value; }
         }
 
         /// <summary>
         /// A class can be either 1 or 2 credit hours.
         /// </summary>
-        public CreditHours CreditHours
+        public int CreditHours
         {
             get { return creditHour; }
             set { creditHour = value; }
+        }
+
+        public string CourseTime {
+            get { return _courseTime; }
+            set { _courseTime = value; }
         }
 
         public bool isAvailable

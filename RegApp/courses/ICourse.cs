@@ -21,7 +21,8 @@ namespace University.Courses
 
         // properties
         string CourseName { get; set; }
-        CreditHours CreditHours { get; set; }
+        int CreditHours { get; set; }
+        string CourseTime { get; set; }
         bool isFull { get; }
         int RosterCount { get; }
     }

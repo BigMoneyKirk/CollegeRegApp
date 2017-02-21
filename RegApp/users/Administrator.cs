@@ -42,8 +42,8 @@ namespace University.Users
 
         public static bool CloseCourse(Course courseToClose)
         {
-            courseToClose.isClosed = true;
-            Console.WriteLine($"Registration closed for {courseToClose.Title}");
+            courseToClose.CourseAvailable = false;
+            Console.WriteLine($"Registration closed for {courseToClose.CourseName}");
             return true;
         }
 
@@ -54,9 +54,9 @@ namespace University.Users
         /// <returns></returns>
         public bool ChangeCourseStatus(Course courseToClose)
         {
-            courseToClose.isClosed = !courseToClose.isClosed;
-            status = courseToClose.isClosed == true ? "closed" : "open";
-            Console.WriteLine($"Registration {status} for {courseToClose.Title}");
+            courseToClose.CourseAvailable = !courseToClose.CourseAvailable;
+            status = courseToClose.CourseAvailable == false ? "closed" : "open";
+            Console.WriteLine($"Registration {status} for {courseToClose.CourseName}");
             return true;
         }
 

@@ -23,7 +23,7 @@ namespace CollegeRegApp.Controllers
 
         public static string GetCoursesFromDBQuery()
         {
-            return "CourseList";
+            return "SELECT * FROM Course ORDER BY CourseTime";
         }
         #endregion dunno
 
