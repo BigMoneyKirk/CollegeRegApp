@@ -28,6 +28,11 @@ namespace CollegeRegApp.Controllers
         #endregion dunno
 
         // GET: RegApp
+        public ViewResult Login()
+        {
+            return View();
+        }
+
         public ViewResult Welcome()
         {
             ViewBag.name = "Kirkland University";

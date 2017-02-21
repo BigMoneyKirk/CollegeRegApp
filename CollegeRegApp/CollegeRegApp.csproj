@@ -183,6 +183,7 @@
     <Content Include="Views\RegApp\ListOfMajors.cshtml" />
     <Content Include="Views\RegApp\StudentAdded.cshtml" />
     <Content Include="Views\RegApp\AddStudentToCourse.cshtml" />
+    <Content Include="Views\RegApp\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

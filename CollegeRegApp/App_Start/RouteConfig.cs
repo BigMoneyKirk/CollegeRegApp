@@ -15,15 +15,15 @@ namespace CollegeRegApp
 
             //The Welcome Page
             routes.MapRoute(
-                name: "Welcome",
-                url: "Welcome",
-                defaults: new { controller = "RegApp", action = "Welcome" }
+                name: "Login",
+                url: "Login",
+                defaults: new { controller = "RegApp", action = "Login" }
             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "RegApp", action = "Welcome", id = UrlParameter.Optional }
+                defaults: new { controller = "RegApp", action = "Login", id = UrlParameter.Optional }
             );
         }
     }
