@@ -23,6 +23,7 @@ namespace University.Courses
         string CourseName { get; set; }
         int CreditHours { get; set; }
         string CourseTime { get; set; }
+        bool CourseAvailable { get; set; }
         bool isFull { get; }
         int RosterCount { get; }
     }

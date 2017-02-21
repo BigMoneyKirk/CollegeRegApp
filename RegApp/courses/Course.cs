@@ -16,7 +16,7 @@ namespace University.Courses
         private string _courseName;
         private int creditHour;
         private string _courseTime;
-        public bool CourseAvailable = true;
+        public bool courseAvailable = true;
         private List<Student> studentRoster = new List<Student>();
         #endregion fields
 
@@ -26,21 +26,13 @@ namespace University.Courses
         {
         }
 
-        public Course(int ID, string title, int creditHour, string courseTime, bool CourseAvailable)
+        public Course(int ID, string title, int creditHour, string courseTime, bool courseAvailable)
         {
             courseID = ID;
             _courseName = title;
             this.creditHour = creditHour;
             _courseTime = courseTime;
-            this.CourseAvailable = CourseAvailable;
-            //if (CourseAvailable == 1)
-            //{
-            //    this.CourseAvailable = true;
-            //}
-            //else
-            //{ 
-            //    this.CourseAvailable = false;
-            //}
+            this.courseAvailable = courseAvailable;
         } // Course constructor
         #endregion constructors
 
@@ -183,7 +175,7 @@ namespace University.Courses
 
         private bool CloseCourse(Course courseToClose)
         {
-            courseToClose.CourseAvailable = false;
+            courseToClose.courseAvailable = false;
             Console.WriteLine($"Registration closed for {courseToClose.CourseName}");
             return true;
         }
@@ -242,6 +234,12 @@ namespace University.Courses
         public string CourseTime {
             get { return _courseTime; }
             set { _courseTime = value; }
+        }
+
+        public bool CourseAvailable
+        {
+            get { return courseAvailable; }
+            set { courseAvailable = value; }
         }
 
         public bool isAvailable
