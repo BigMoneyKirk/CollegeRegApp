@@ -12,7 +12,6 @@ namespace CollegeRegApp.Controllers
 {
     public class RegAppController : Controller
     {
-        private static string fname;
         private static int id;
 
         #region DB stuff
@@ -53,7 +52,7 @@ namespace CollegeRegApp.Controllers
                 if (email == item.Email && password == item.Password)
                 {
                     id = item.Id;
-                    fname = item.Firstname;
+                    Console.WriteLine(University2._studentlist);
                     return View("Home");
                 }
             }
@@ -68,7 +67,6 @@ namespace CollegeRegApp.Controllers
         public ViewResult Home()
         {
             ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
-            ViewData["StudentName"] = fname;
             return View();
         }
 

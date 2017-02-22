@@ -63,8 +63,8 @@ namespace University.Users
         //firstname property
         public string Firstname
         {
-            get { return this.firstname; }
-            set { this.firstname = value; }
+            get { return firstname; }
+            set { firstname = value; }
         }
 
         //lasstname property
