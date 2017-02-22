@@ -84,7 +84,8 @@ namespace University
 
                     while (reader.Read() && !studentReadClosed)
                     {
-
+                        Student s = new Student((int)reader[0], reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), (int)reader[5], (Status)reader[6], (bool)reader[7]);
+                        University2.AddStudent(s);
                     }
                     studentReadClosed = true;
                     reader.Close();
@@ -154,7 +155,7 @@ namespace University
         /// <returns></returns>
         public static string NewStudentQuery(Student s)
         {
-            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.Major}, '{s._status.ToString()}', '{(int)s.IsFulltime}')";
+            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.MajorID}, '{s._Status.ToString()}', '{s.IsFulltime}')";
         }
 
         /// <summary>

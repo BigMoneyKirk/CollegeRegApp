@@ -55,9 +55,9 @@ namespace University
             }
         }
 
-        public void AddStudent(Student student)
+        public static void AddStudent(Student student)
         {
-            ListOfStudents.Add(student);
+            _studentlist.Add(student);
         }
 
         public static List<Major> ListOfMajors

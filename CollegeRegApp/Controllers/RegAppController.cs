@@ -21,6 +21,11 @@ namespace CollegeRegApp.Controllers
             return "Data Source=myinstancedemo.chppvnuzl4vk.us-east-1.rds.amazonaws.com,1433;Initial Catalog=RegistrationAppDB;Persist Security Info=True;User ID=stephenkirkland;Password=12345678;Encrypt=False;";
         }
 
+        public static string GetStudentsFromDBQuery()
+        {
+            return "SELECT * FROM Student";
+        }
+
         public static string GetCoursesFromDBQuery()
         {
             return "SELECT * FROM Course ORDER BY CourseTime";
@@ -28,11 +33,23 @@ namespace CollegeRegApp.Controllers
         #endregion DB stuff
 
         // GET: RegApp
+        [HttpGet]
         public ViewResult Login()
         {
+            Global.WriteStudentsToUniversity(con, GetStudentsFromDBQuery());
 
             ViewData["Students"] = University2._studentlist;
             return View();
+        }
+
+        [HttpPost]
+        public ViewResult Login(Student s)
+        {
+            //if ()
+            //{
+
+            //}
+            return View("Home", s);
         }
 
         public ViewResult Home()

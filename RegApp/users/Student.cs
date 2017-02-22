@@ -12,8 +12,8 @@ namespace University.Users
     public class Student : User
     {
         #region fields
-        private string major;
-        private Fulltime isFulltime;  //full-time or part-time
+        private int majorID;
+        private bool isFulltime;  //full-time or part-time
         private Status grade;
         public List<ICourse> ListOfStudentsCourses = new List<ICourse>();
         #endregion fields
@@ -23,10 +23,10 @@ namespace University.Users
         {
         }
 
-        public Student(int id, string firstname, string lastname, string email, string password, Fulltime isFulltime, Status grade,
-            string major = "undecided") : base(id, firstname, lastname, email, password)
+        public Student(int id, string firstname, string lastname, string email, string password, int majorID, Status grade,
+            bool isFulltime) : base(id, firstname, lastname, email, password)
         {
-            this.major = major;
+            this.majorID = majorID;
             this.isFulltime = isFulltime;
             this.grade = grade;
         }
@@ -39,21 +39,22 @@ namespace University.Users
         #endregion methods
 
         #region properties
-        public string Major
+        public int MajorID
         {
-            get { return this.major; }
-            set { this.major = value; }
+            get { return this.majorID; }
+            set { this.majorID = value; }
         }
 
-        public Fulltime IsFulltime
+        public bool IsFulltime
         {
-            get;
-            set;
+            get { return isFulltime; }
+            set { this.isFulltime = value; }
         }
 
-        public Status _status
+        public Status _Status
         {
-            get; set;
+            get { return grade; }
+            set { grade = value; }
         }
 
         #endregion properties
