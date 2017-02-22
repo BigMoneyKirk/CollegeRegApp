@@ -45,11 +45,19 @@ namespace CollegeRegApp.Controllers
         [HttpPost]
         public ViewResult Login(Student s)
         {
-            //if ()
-            //{
+            for (int i = 0; i < University2._studentlist.Count; i++)
+            {
+                if (s.Email == "sk01417@uga.edu" && s.Password == "password")
+                {
+                    return View("Home");
+                }
+            }
+            return View("NotIt");
+        }
 
-            //}
-            return View("Home", s);
+        public ViewResult NotIt()
+        {
+            return View();
         }
 
         public ViewResult Home()

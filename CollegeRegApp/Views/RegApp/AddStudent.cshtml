@@ -16,7 +16,7 @@
         <div>Last Name: @Html.TextBoxFor(x => x.Lastname, new { @placeholder = "i.e. Smith" })</div>
         <div>email: @Html.TextBoxFor(x => x.Email, new { @placeholder = "i.e. johnsmith@email.com" })</div>
         <div>password: @Html.TextBoxFor(x => x.Password, new { @placeholder = "enter password here" })</div>
-        <div>Major: @Html.TextBoxFor(x => x.Major, new { @placeholder = "What is your passion?" })</div>
+        <div>Major: @Html.TextBoxFor(x => x.MajorID, new { @placeholder = "What is your passion?" })</div>
         <div>
             Are you fulltime?
             @foreach (var item in ViewData["isFulltime"] as List<string>)
@@ -30,7 +30,7 @@
             <br />
             @foreach (var item in ViewData["Status"] as List<string>)
             {
-                @Html.RadioButtonFor(x => x._status, item)@item
+                @Html.RadioButtonFor(x => x._Status, item)@item
                 <br />
             }
         </div>
