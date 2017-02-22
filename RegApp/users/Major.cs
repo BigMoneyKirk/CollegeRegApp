@@ -8,15 +8,23 @@ namespace University.Users
 {
     public class Major
     {
+        int id;
         string title;
 
         public Major()
         {
         }
 
-        public Major(string title)
+        public Major(int id, string title)
         {
+            this.id = id;
             this.title = title;
+        }
+
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         public string Title
@@ -30,6 +38,5 @@ namespace University.Users
                 title = value;
             }
         }
-        public int ID { get; set; }
     }
 }

@@ -30,11 +30,14 @@ namespace CollegeRegApp.Controllers
         // GET: RegApp
         public ViewResult Login()
         {
+
+            ViewData["Students"] = University2._studentlist;
             return View();
         }
 
         public ViewResult Home()
         {
+            ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
             //ViewData["StudentName"] = Student.Firstname;
             return View();
         }

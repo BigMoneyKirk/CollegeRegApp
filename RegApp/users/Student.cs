@@ -15,7 +15,7 @@ namespace University.Users
         private string major;
         private Fulltime isFulltime;  //full-time or part-time
         private Status grade;
-        List<ICourse> ListOfCourses;
+        public List<ICourse> ListOfStudentsCourses = new List<ICourse>();
         #endregion fields
 
         #region constructor
@@ -23,8 +23,8 @@ namespace University.Users
         {
         }
 
-        public Student(string firstname, string lastname, string password, string email, int id, Fulltime isFulltime, Status grade,
-            string major = "undecided") : base(firstname, lastname, password, email, id)
+        public Student(int id, string firstname, string lastname, string email, string password, Fulltime isFulltime, Status grade,
+            string major = "undecided") : base(id, firstname, lastname, email, password)
         {
             this.major = major;
             this.isFulltime = isFulltime;

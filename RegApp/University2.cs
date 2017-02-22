@@ -13,7 +13,7 @@ namespace University
         public static List<ICourse> _courselist = new List<ICourse>();
         public static List<Student> _studentlist = new List<Student>();
         public static List<Major> _majorlist = new List<Major>();
-        public static List<string> _timelist = new List<string>(new[] { "8:00", "8:30", "9:10", "9:30", "10:20", "12:15", "12:45", "1:45", "2:00", "3:00", "3:30", "3:35", "6:00"});
+        public static List<string> _timelist = new List<string>(new[] { "8:00", "8:30", "9:10", "9:30", "10:20", "12:15", "12:45", "13:45", "14:00", "15:00", "15:30", "15:35", "16:00", "16:30", "18:00"});
 
         public University2(List<ICourse> courses)
         {
@@ -33,18 +33,13 @@ namespace University
             set { _courselist = value; }
         }
 
-        public List<ICourse> GetCourses()
-        {
-            return ListOfCourses;
-        }
-
         public static void AddCourse(Course course)
         {
             ListOfCourses.Add(course);
         }
 
         ///students
-        public List<Student> ListOfStudents
+        public static List<Student> ListOfStudents
         {
             get
             {
@@ -58,11 +53,6 @@ namespace University
             {
                 _studentlist = value;
             }
-        }
-
-        public List<Student> GetStudents()
-        {
-            return ListOfStudents;
         }
 
         public void AddStudent(Student student)

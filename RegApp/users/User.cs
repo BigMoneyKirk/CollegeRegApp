@@ -32,18 +32,24 @@ namespace University.Users
             this.lastname = lastname;
         }
 
-        public User(string firstname, string lastname, string password, string email, int id)
+        public User(int id, string firstname, string lastname, string email, string password)
         {
+            this.id = id;
             this.firstname = firstname;
             this.lastname = lastname;
-            this.password = password;
             this.email = email;
-            this.id = id;
+            this.password = password;
         }
 
         #endregion constructors
 
         #region properties
+        //id property
+        public int Id
+        {
+            get { return this.id; }
+        }
+
         //fullname property
         public string Fullname
         {
@@ -80,13 +86,6 @@ namespace University.Users
         {
             get { return this.password; }
         }
-
-        //id property
-        public int Id
-        {
-            get { return this.id; }
-        }
-
         #endregion properties
 
         #region methods

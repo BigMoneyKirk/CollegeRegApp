@@ -19,6 +19,7 @@ namespace University
         public static int numberOf1HourCourses = 0;
         public static int numberOf2HourCourses = 0;
         public static int majorCount = 0;
+        private static bool studentReadClosed = false;
         private static bool majorReadClosed = false;
         private static bool courseReadClosed = false;
 
@@ -57,7 +58,7 @@ namespace University
 
                     while (reader.Read() && !majorReadClosed)
                     {
-                        Major m = new Major(reader[0].ToString());
+                        Major m = new Major((int)reader[0], reader[1].ToString());
                         University2.AddMajor(m);
                         majorCount++;
                     }
@@ -65,6 +66,30 @@ namespace University
                     reader.Close();
                 }
                 catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+
+        public static void WriteStudentsToUniversity(string connection, string query)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connection))
+            {
+                SqlCommand command = new SqlCommand(query, sqlcon);
+                try
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read() && !studentReadClosed)
+                    {
+
+                    }
+                    studentReadClosed = true;
+                    reader.Close();
+                }
+                catch(Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
@@ -155,8 +180,35 @@ namespace University
 
         public static string GetMajorsFromDBQuery()
         {
-            return "MajorTitles";
+            return "SELECT * FROM Major";
         }
+
+        /*
+         *----------------------------------------SELECT LIST---------------------------------------------------------- 
+        */
+        //public static List<SelectListItem> ToSelectList<T>(this List<T> Items, Func<T, string> getKey, Func<T, string> getValue, string selectedValue, string noSelection, bool search = false)
+        //{
+        //    List<SelectListItem> items = new List<SelectListItem>();
+
+        //    if (search)
+        //    {
+        //        items.Add(new SelectListItem { Selected = true, Value = "-1", Text = string.Format("-- {0} --", noSelection) });
+        //    }
+
+        //    foreach (var item in Items)
+        //    {
+        //        items.Add(new SelectListItem
+        //        {
+        //            Text = getKey(item),
+        //            Value = getValue(item),
+        //            Selected = selectedValue == getValue(item) ? true : false
+        //        });
+        //    }
+
+        //    return items
+        //        .OrderBy(l => l.Text)
+        //        .ToList();
+        //}
 
     } // GLOBAL CLASS
 
