@@ -34,7 +34,7 @@ namespace CollegeRegApp.Controllers
 
         // GET: RegApp
         [HttpGet]
-        public ViewResult Login()
+        public ActionResult Login(string email, string password)
         {
             Global.WriteStudentsToUniversity(con, GetStudentsFromDBQuery());
 
@@ -43,11 +43,11 @@ namespace CollegeRegApp.Controllers
         }
 
         [HttpPost]
-        public ViewResult Login(Student s)
+        public ActionResult Login(string email, string password, Student s)
         {
-            for (int i = 0; i < University2._studentlist.Count; i++)
+            foreach(var item in University2._studentlist)
             {
-                if (s.Email == "sk01417@uga.edu" && s.Password == "password")
+                if (email == item.Email && password == item.Password)
                 {
                     return View("Home");
                 }

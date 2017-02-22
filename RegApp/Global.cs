@@ -84,7 +84,15 @@ namespace University
 
                     while (reader.Read() && !studentReadClosed)
                     {
-                        Student s = new Student((int)reader[0], reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), (int)reader[5], (Status)reader[6], (bool)reader[7]);
+                        int a = (int)reader[0];
+                        string b = reader[1].ToString();
+                        string c = reader[2].ToString();
+                        string d = reader[3].ToString();
+                        string e = reader[4].ToString();
+                        int f = (int)reader[5];
+                        Status g = (Status)reader[6];
+                        bool h = (bool)reader[7];
+                        Student s = new Student(a, b, c, d, e, f, g, h);
                         University2.AddStudent(s);
                     }
                     studentReadClosed = true;
