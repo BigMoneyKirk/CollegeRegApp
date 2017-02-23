@@ -11,7 +11,13 @@
     <p>No courses yet</p>
 
     <h3><u>Register</u></h3>
-    <p>Enter Course ID you would like to register for: </p> @* @Html.TextBoxFor(x=>x.) *@
+    <p>Enter Course ID you would like to register for: </p>
+    
+    @using (Html.BeginForm("Home", "RegApp", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        @Html.TextBox("courseID")
+    }
   @*  @Html.DropDownList("Courses", "Select course to add:") *@
 
     @Html.Action("Courses")

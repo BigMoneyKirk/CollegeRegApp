@@ -187,6 +187,7 @@
     <Content Include="Views\RegApp\Home.cshtml" />
     <Content Include="Views\RegApp\NotIt.cshtml" />
     <Content Include="Views\RegApp\Courses.cshtml" />
+    <Content Include="Views\RegApp\Home2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

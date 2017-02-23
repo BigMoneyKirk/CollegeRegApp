@@ -57,6 +57,23 @@ namespace University.Users
             set { grade = value; }
         }
 
+        //public int _courseID
+        //{
+        //    get {
+        //        foreach (var item in University2._courselist)
+        //        {
+        //            return item.CourseID;
+        //        }
+        //    }
+        //    set { Course c = new Course(_courseID); }
+        //}
+
+        public List<ICourse> _courses
+        {
+            get { return ListOfStudentsCourses; }
+            set { ListOfStudentsCourses = value; }
+        }
+
         #endregion properties
 
     }

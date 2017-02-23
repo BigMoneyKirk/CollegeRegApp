@@ -88,7 +88,8 @@ namespace CollegeRegApp.Controllers
             return View();
         }
 
-        public ViewResult Home(Student s)
+        [HttpGet]
+        public ActionResult Home(int? courseID, Student s)
         {
             if (!successful)
             {
@@ -99,6 +100,12 @@ namespace CollegeRegApp.Controllers
             s.Id = keep.Id;
             //ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
             return View(s);
+        }
+
+        [HttpPost]
+        public ViewResult Home(int? courseID)
+        {
+            return View("Home2");
         }
 
         public ViewResult Welcome()
@@ -153,7 +160,7 @@ namespace CollegeRegApp.Controllers
         }
 
         public PartialViewResult Courses()
-        {
+        {   
             Global.ShowReadResultForCourses(con, GetCoursesFromDBQuery());
             ViewData["Courses"] = University2._courselist;
             return PartialView();

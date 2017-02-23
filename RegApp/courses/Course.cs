@@ -12,7 +12,7 @@ namespace University.Courses
     public class Course : ICourse
     {
         #region fields
-        private int courseID;
+        public int courseID;
         private string _courseName;
         private int creditHour;
         private string _courseTime;
@@ -24,6 +24,11 @@ namespace University.Courses
         #region constructors
         public Course()
         {
+        }
+
+        public Course(int ID)
+        {
+            courseID = ID;
         }
 
         public Course(int ID, string title, int creditHour, string courseTime, bool courseAvailable)
