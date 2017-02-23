@@ -1,8 +1,8 @@
-﻿
-@{
-    ViewBag.Title = "Does it work...?";
-}
+﻿@model University.Users.Student
 
+@{
+    ViewBag.Title = "Works...";
+}
 <div> 
-    Just wanted to see if it would work...
+    @Model.Fullname just tried to register for @Html.Display("courseID")
 </div>

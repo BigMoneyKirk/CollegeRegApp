@@ -15,6 +15,18 @@ namespace CollegeRegApp.Controllers
         #region keep student's info
         private static Student keep = new Student();
         private static bool successful = false;
+        private static bool updateable = false;
+
+        public void DoStuff(Student s)
+        {
+            s.Id = keep.Id;
+            s.Firstname = keep.Firstname;
+            s.Lastname = keep.Lastname;
+            s.Email = keep.Email;
+            s.Password = keep.Password;
+            s.IsFulltime = keep.IsFulltime;
+            KeepStatus();
+        }
 
         #region keep student method
         public void KeepStatus()
@@ -95,17 +107,19 @@ namespace CollegeRegApp.Controllers
             {
                 return View("NotIt");
             }
-            KeepStatus();
-            s.Firstname = keep.Firstname;
-            s.Id = keep.Id;
-            //ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
+            DoStuff(s);
             return View(s);
         }
 
         [HttpPost]
-        public ViewResult Home(int? courseID)
+        public ViewResult Home(int? courseID, Student s, int? l)
         {
-            return View("Home2");
+            if (!successful)
+            {
+                return View("NotIt");
+            }
+            DoStuff(s);
+            return View("Home2", s);
         }
 
         public ViewResult Welcome()
