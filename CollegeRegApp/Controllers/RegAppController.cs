@@ -12,7 +12,14 @@ namespace CollegeRegApp.Controllers
 {
     public class RegAppController : Controller
     {
+        #region keep student's info
+        private static string fname;
+        private static string lname;
+        private static string email;
+        private static string password;
         private static int id;
+        private static bool successful = false;
+        #endregion keep student's info
 
         #region DB stuff
         // connections
@@ -39,7 +46,7 @@ namespace CollegeRegApp.Controllers
         public ActionResult Login(string email, string password)
         {
             Global.WriteStudentsToUniversity(con, GetStudentsFromDBQuery());
-
+            successful = false;
             ViewData["Students"] = University2._studentlist;
             return View();
         }
@@ -49,11 +56,14 @@ namespace CollegeRegApp.Controllers
         {
             foreach(var item in University2._studentlist)
             {
-                if (email == item.Email && password == item.Password)
+                if (ModelState.IsValid && email == item.Email && password == item.Password)
                 {
+                    s.Id = item.Id;
                     id = item.Id;
-                    Console.WriteLine(University2._studentlist);
-                    return View("Home");
+                    s.Firstname = item.Firstname;
+                    fname = item.Firstname;
+                    successful = true;
+                    return View("Home", s);
                 }
             }
             return View("NotIt");
@@ -64,10 +74,16 @@ namespace CollegeRegApp.Controllers
             return View();
         }
 
-        public ViewResult Home()
+        public ViewResult Home(Student s)
         {
-            ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
-            return View();
+            if (!successful)
+            {
+                return View("NotIt");
+            }
+            s.Firstname = fname;
+            s.Id = id;
+            //ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
+            return View(s);
         }
 
         public ViewResult Welcome()

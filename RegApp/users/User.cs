@@ -47,7 +47,8 @@ namespace University.Users
         //id property
         public int Id
         {
-            get { return this.id; }
+            get { return id; }
+            set { id = value; }
         }
 
         //fullname property
@@ -85,6 +86,7 @@ namespace University.Users
         public string Password
         {
             get { return this.password; }
+            set { password = value; }
         }
         #endregion properties
 

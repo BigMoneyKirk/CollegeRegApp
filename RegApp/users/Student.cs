@@ -24,7 +24,7 @@ namespace University.Users
         }
 
         public Student(int id, string firstname, string lastname, string email, string password, int majorID, Status grade,
-            bool isFulltime) : base(id, firstname, lastname, email, password)
+            bool isFulltime = false) : base(id, firstname, lastname, email, password)
         {
             this.majorID = majorID;
             this.isFulltime = isFulltime;
@@ -51,7 +51,7 @@ namespace University.Users
             set { this.isFulltime = value; }
         }
 
-        public Status _Status
+        public Status Grade
         {
             get { return grade; }
             set { grade = value; }

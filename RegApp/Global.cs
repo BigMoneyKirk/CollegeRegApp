@@ -163,7 +163,7 @@ namespace University
         /// <returns></returns>
         public static string NewStudentQuery(Student s)
         {
-            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.MajorID}, '{s._Status.ToString()}', '{s.IsFulltime}')";
+            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.MajorID}, {(int)s.Grade}, '{s.IsFulltime}')";
         }
 
         /// <summary>
