@@ -119,6 +119,7 @@ namespace CollegeRegApp.Controllers
                 return View("NotIt");
             }
             DoStuff(s);
+            ViewBag.c = courseID;
             return View("Home2", s);
         }
 
