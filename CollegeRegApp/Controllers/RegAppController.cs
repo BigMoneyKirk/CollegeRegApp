@@ -123,9 +123,24 @@ namespace CollegeRegApp.Controllers
             Global.grabThatCourseID = (int)courseID;
             if (keep.CreditHourCheck())
             {
-                //if()
+                // find the course in the University2
+                foreach (Course item in University2._courselist)
+                {
+                    if(item.CourseID == Global.grabThatCourseID)
+                    {
+                        if (item.isAvailable)
+                        {
+                            item.IncrementStudentCount();
+                            keep.AddCourse(item);
+                            // add studentID and courseID to Student_Course Table in SQL Server
+                            Global.GetDisconnectedResult(con, Global.AddStudentCourseToDBQuery(keep.Id, item.CourseID));
+                            return View("Home2", keep);
+                        }
+                    }
+                }
+                
             }
-            return View("Home2", keep);
+            return View("NotIt");
         }
 
         public ViewResult Welcome()

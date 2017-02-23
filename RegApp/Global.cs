@@ -128,7 +128,8 @@ namespace University
                         int d = (int)reader[2];
                         string e = reader[3].ToString();
                         bool f = (bool)reader[4];
-                        Course c = new Course(a, b, d, e, f);
+                        int g = (int)reader[5];
+                        Course c = new Course(a, b, d, e, f, g);
                         University2.AddCourse(c);
                     }
                     courseReadClosed = true;
@@ -187,7 +188,18 @@ namespace University
         {
             return "SELECT FirstName, LastName FROM Student";
         }
-         
+
+        /*
+         *----------------------------------------STUDENTCOURSE STUFF----------------------------------------------------
+        */
+
+
+
+            public static string AddStudentCourseToDBQuery(int s, int c)
+        {
+            return $"INSERT INTO Student_Course VALUES({s}, {c})";
+        }
+
         /*
          *-----------------------------------------MAJOR STUFF---------------------------------------------------------- 
         */

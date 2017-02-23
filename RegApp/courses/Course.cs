@@ -18,6 +18,7 @@ namespace University.Courses
         private string _courseTime;
         public bool courseAvailable = true;
         private List<Student> studentRoster = new List<Student>();
+        private int numOfStudents = 0;
         #endregion fields
 
 
@@ -31,13 +32,14 @@ namespace University.Courses
             courseID = ID;
         }
 
-        public Course(int ID, string title, int creditHour, string courseTime, bool courseAvailable)
+        public Course(int ID, string title, int creditHour, string courseTime, bool courseAvailable, int numOfStudents = 0)
         {
             courseID = ID;
             _courseName = title;
             this.creditHour = creditHour;
             _courseTime = courseTime;
             this.courseAvailable = courseAvailable;
+            this.numOfStudents = numOfStudents;
         } // Course constructor
         #endregion constructors
 
@@ -208,6 +210,12 @@ namespace University.Courses
         {
             return Task.Run(() => { return studentRoster; });
         }
+
+        public void IncrementStudentCount()
+        {
+            numOfStudents++;
+        }
+
         #endregion methods
 
 
@@ -251,7 +259,7 @@ namespace University.Courses
         {
             get
             {
-                return studentRoster.Count < Global.maxStudents;
+                return numOfStudents < Global.maxStudents;
             }
         }
 

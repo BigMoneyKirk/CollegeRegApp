@@ -45,6 +45,11 @@ namespace University.Users
                 return false;
         }
 
+        public void AddCourse(Course c)
+        {
+            ListOfStudentsCourses.Add(c);
+        }
+
         #endregion methods
 
         #region properties
