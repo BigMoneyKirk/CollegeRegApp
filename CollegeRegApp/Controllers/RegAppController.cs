@@ -108,7 +108,7 @@ namespace CollegeRegApp.Controllers
                 return View("NotIt");
             }
             DoStuff(s);
-            return View(s);
+            return View(keep);
         }
 
         [HttpPost]
@@ -121,8 +121,11 @@ namespace CollegeRegApp.Controllers
             DoStuff(s);
             ViewBag.c = courseID;
             Global.grabThatCourseID = (int)courseID;
-            //CreditHourCheck();
-            return View("Home2", s);
+            if (keep.CreditHourCheck())
+            {
+                //if()
+            }
+            return View("Home2", keep);
         }
 
         public ViewResult Welcome()

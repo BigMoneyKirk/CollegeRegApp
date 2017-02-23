@@ -25,10 +25,9 @@ namespace University.Users
         }
 
         public Student(int id, string firstname, string lastname, string email, string password, int majorID, Status grade,
-            bool isFulltime = false) : base(id, firstname, lastname, email, password)
+            bool isFulltime = false, int studentCreditHours = 0) : base(id, firstname, lastname, email, password)
         {
             this.majorID = majorID;
-            this.isFulltime = isFulltime;
             this.grade = grade;
         }
 
@@ -36,7 +35,16 @@ namespace University.Users
 
         #region methods
 
-        
+        public bool CreditHourCheck()
+        {
+            if (studentCreditHours <= 6)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         #endregion methods
 
         #region properties

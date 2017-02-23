@@ -102,6 +102,10 @@ namespace University
             }
         }
 
+        /*
+         *-------------------------------------------COURSE STUFF--------------------------------------------------------
+        */
+
         /// <summary>
         /// Want to display the names of the course and their availablity. May incorporate them as a sorted table by time.
         /// </summary>
@@ -136,6 +140,11 @@ namespace University
                 }
             }
         }
+
+        public static string PullCourseByIDQuery(int id)
+        {
+            return $"SELECT * FROM Course where CourseID = {id}";
+        }
         #endregion ReadResults
 
         /// <summary>
@@ -160,7 +169,7 @@ namespace University
         /// <returns></returns>
         public static string NewStudentQuery(Student s)
         {
-            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.MajorID}, {(int)s.Grade}, '{s.IsFulltime}')";
+            return $"INSERT INTO Student VALUES('{s.Firstname}','{s.Lastname}', '{s.Email}', '{s.Password}', {s.MajorID}, {(int)s.Grade}, '{s.IsFulltime}', {s.studentCreditHours})";
         }
 
         /// <summary>
@@ -191,29 +200,7 @@ namespace University
         /*
          *----------------------------------------SELECT LIST---------------------------------------------------------- 
         */
-        //public static List<SelectListItem> ToSelectList<T>(this List<T> Items, Func<T, string> getKey, Func<T, string> getValue, string selectedValue, string noSelection, bool search = false)
-        //{
-        //    List<SelectListItem> items = new List<SelectListItem>();
-
-        //    if (search)
-        //    {
-        //        items.Add(new SelectListItem { Selected = true, Value = "-1", Text = string.Format("-- {0} --", noSelection) });
-        //    }
-
-        //    foreach (var item in Items)
-        //    {
-        //        items.Add(new SelectListItem
-        //        {
-        //            Text = getKey(item),
-        //            Value = getValue(item),
-        //            Selected = selectedValue == getValue(item) ? true : false
-        //        });
-        //    }
-
-        //    return items
-        //        .OrderBy(l => l.Text)
-        //        .ToList();
-        //}
+        
 
     } // GLOBAL CLASS
 
