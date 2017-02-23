@@ -18,6 +18,7 @@ namespace University
         private static bool studentReadClosed = false;
         private static bool majorReadClosed = false;
         private static bool courseReadClosed = false;
+        public static int grabThatCourseID;
 
         #region DATABASE
         /*

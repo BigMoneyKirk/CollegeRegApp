@@ -120,6 +120,8 @@ namespace CollegeRegApp.Controllers
             }
             DoStuff(s);
             ViewBag.c = courseID;
+            Global.grabThatCourseID = (int)courseID;
+            CreditHourCheck();
             return View("Home2", s);
         }
 

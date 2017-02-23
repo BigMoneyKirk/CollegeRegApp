@@ -16,6 +16,7 @@ namespace University.Users
         private bool isFulltime;  //full-time or part-time
         private Status grade;
         public List<ICourse> ListOfStudentsCourses = new List<ICourse>();
+        public int studentCreditHours = 0;
         #endregion fields
 
         #region constructor
