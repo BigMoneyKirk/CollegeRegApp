@@ -15,10 +15,26 @@ namespace CollegeRegApp.Controllers
         #region keep student's info
         private static string fname;
         private static string lname;
-        private static string email;
-        private static string password;
+        private static string eemail;
+        private static string ppassword;
         private static int id;
+        private static bool isfulltime;
         private static bool successful = false;
+
+        #region keep student method
+        public void KeepStatus()
+        {
+            if (isfulltime)
+            {
+                ViewData["full"] = "FULLTIME";
+            }
+            else
+            {
+                ViewData["full"] = "PARTTIME";
+            }
+        }
+        #endregion keep student method
+
         #endregion keep student's info
 
         #region DB stuff
@@ -62,6 +78,11 @@ namespace CollegeRegApp.Controllers
                     id = item.Id;
                     s.Firstname = item.Firstname;
                     fname = item.Firstname;
+                    lname = item.Lastname;
+                    eemail = item.Email;
+                    ppassword = item.Password;
+                    isfulltime = item.IsFulltime;
+                    KeepStatus();
                     successful = true;
                     return View("Home", s);
                 }
@@ -80,6 +101,7 @@ namespace CollegeRegApp.Controllers
             {
                 return View("NotIt");
             }
+            KeepStatus();
             s.Firstname = fname;
             s.Id = id;
             //ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;

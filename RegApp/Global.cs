@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using University.Courses;
 using University.Users;
 
@@ -181,8 +177,7 @@ namespace University
         {
             return "SELECT FirstName, LastName FROM Student";
         }
-
-
+         
         /*
          *-----------------------------------------MAJOR STUFF---------------------------------------------------------- 
         */
