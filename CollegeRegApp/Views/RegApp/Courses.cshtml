@@ -1,0 +1,42 @@
+﻿@model University2
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Course ID
+        </th>
+        <th>
+            Course Title
+        </th>
+        <th>
+            Credit Hour(s)
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+            Open?
+        </th>
+    </tr>
+
+    @foreach (var item in ViewData["Courses"] as List<ICourse>)
+    {
+        <tr>
+            <td>
+                @item.CourseID
+            </td>
+            <td>
+                @item.CourseName
+            </td>
+            <td>
+                @item.CreditHours
+            </td>
+            <td>
+                @item.CourseTime
+            </td>
+            <td>
+                @item.CourseAvailable
+            </td>
+        </tr>
+    }
+</table>

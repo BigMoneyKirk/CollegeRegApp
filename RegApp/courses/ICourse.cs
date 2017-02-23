@@ -20,6 +20,7 @@ namespace University.Courses
         Task<List<Student>> GetStudentRoster();
 
         // properties
+        int CourseID { get; set; }
         string CourseName { get; set; }
         int CreditHours { get; set; }
         string CourseTime { get; set; }

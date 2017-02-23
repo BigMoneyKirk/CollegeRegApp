@@ -13,18 +13,13 @@ namespace CollegeRegApp.Controllers
     public class RegAppController : Controller
     {
         #region keep student's info
-        private static string fname;
-        private static string lname;
-        private static string eemail;
-        private static string ppassword;
-        private static int id;
-        private static bool isfulltime;
+        private static Student keep = new Student();
         private static bool successful = false;
 
         #region keep student method
         public void KeepStatus()
         {
-            if (isfulltime)
+            if (keep.IsFulltime)
             {
                 ViewData["full"] = "FULLTIME";
             }
@@ -74,17 +69,15 @@ namespace CollegeRegApp.Controllers
             {
                 if (ModelState.IsValid && email == item.Email && password == item.Password)
                 {
-                    s.Id = item.Id;
-                    id = item.Id;
-                    s.Firstname = item.Firstname;
-                    fname = item.Firstname;
-                    lname = item.Lastname;
-                    eemail = item.Email;
-                    ppassword = item.Password;
-                    isfulltime = item.IsFulltime;
+                    keep.Id = item.Id;
+                    keep.Firstname = item.Firstname;
+                    keep.Lastname = item.Lastname;
+                    keep.Email = item.Email;
+                    keep.Password = item.Password;
+                    keep.IsFulltime = item.IsFulltime;
                     KeepStatus();
                     successful = true;
-                    return View("Home", s);
+                    return View("Home", keep);
                 }
             }
             return View("NotIt");
@@ -102,8 +95,8 @@ namespace CollegeRegApp.Controllers
                 return View("NotIt");
             }
             KeepStatus();
-            s.Firstname = fname;
-            s.Id = id;
+            s.Firstname = keep.Firstname;
+            s.Id = keep.Id;
             //ViewData["Courses"] = University2._courselist as IEnumerable<SelectListItem>;
             return View(s);
         }
@@ -156,9 +149,14 @@ namespace CollegeRegApp.Controllers
 
         public ViewResult ListOfCourses()
         {
+            return View();
+        }
+
+        public PartialViewResult Courses()
+        {
             Global.ShowReadResultForCourses(con, GetCoursesFromDBQuery());
             ViewData["Courses"] = University2._courselist;
-            return View();
+            return PartialView();
         }
     }
 }
